@@ -1,0 +1,42 @@
+﻿@model OlimpikonMVC.Models.Orszag;
+
+@{
+	ViewData["Címe"]="Ország szerkesztése";
+}
+
+<h1>@ViewData["Címe"]</h1>
+
+@if (TempData["Valami"]!= null)
+{
+	<div class="alert alert-success alert-dismissible fade show">
+		@TempData["Valami"]
+		<button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
+	</div>	
+
+}
+
+
+
+<form style="max-width:600px;" asp-action="UpdateOrszag" asp-controller="Home" method="post" class="needs-validation" novalidate>
+	<div class="mb-4">
+		<label asp-for="Id" class="form-label">Szerkeszteni kívánt ország Id-ja</label>
+		<input asp-for="Id" class="form-input" placeholder="0" / />
+	</div>
+
+	<div class="mb-4">
+		<label asp-for="Nev" class="form-label">Név</label>
+		<input asp-for="Nev" class="form-input" placeholder="valami név" / />
+	</div>
+
+	<div class="mb-4">
+		<label asp-for="Fovaros" class="form-label">Főváros</label>
+		<input asp-for="Fovaros" class="form-input" placeholder="valami főváros" / />
+	</div>
+
+	<div class="mb-4">
+		<label asp-for="Nepesseg" class="form-label">Népesség</label>
+		<input asp-for="Nepesseg" class="form-input" placeholder="valamennyi népesség" / />
+	</div>
+
+	<button type="submit" class="btn btn-primary w-100">Ország szerkesztése</button>
+</form>

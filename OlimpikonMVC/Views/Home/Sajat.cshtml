@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Ez itt eg teljesen saját felület";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>
+    Na jöjjenek:
+</p>
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Név</th>
+        <th>Főváros</th>
+        <th>Népesség</th>
+    </tr>
+
+    @foreach (var elem in @Model)
+    {
+        
+        <tr>
+            <td><a  asp-area="" asp-contorller="Home" asp-action="Egyedi" asp-route-id="@elem.Id">@elem.Id</a></td>
+            <td>@elem.Nev</td>
+            <td>@elem.Fovaros</td>
+            <td>@elem.Nepesseg</td>
+
+        </tr>
+    }
+</table>

@@ -1,0 +1,38 @@
+﻿@model OlimpikonMVC.Models.Orszag;
+
+@{
+	ViewData["Title"] = "Ország felvitele";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+@if (TempData["SuccessMessage"] != null)
+
+{
+	<div class="alert alert-success alert-dismissible fade show">
+		@TempData["SuccessMessage"]
+
+		<button type="button" class="btn btn-close" data-bs-dismiss="alert"></button>
+	</div>	
+}
+
+
+<form asp-controller="Home" asp-action="CreateOrszag" method="post" class="needs-validation" novalidate>
+	<div class="mb-4">
+		<label asp-for="Nev" class="form-label">Ország neve</label>
+		<input asp-for="Nev" class="form-input" placeholder="valami név" />
+	</div>
+
+	<div class="mb-4">
+		<label asp-for="Fovaros" class="form-label">Ország fővárosa</label>
+		<input asp-for="Fovaros" class="form-input" placeholder="valami főváros" />
+	</div>
+
+	<div class="mb-4">
+		<label asp-for="Nepesseg" class="form-label">Ország népessége</label>
+		<input asp-for="Nepesseg" class="form-input" placeholder="valamiennyi népesség" />
+	</div>
+
+	<button type="submit" class="btn btn-primary">Ország feltöltése</button>
+</form>
